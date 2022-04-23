@@ -9,8 +9,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>This is a Spotify Clone using Next.js!</h1>
-
       <main>
         <Sidebar />
         {/* Center */}
