@@ -1,6 +1,9 @@
 import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 
+// Since all Middleware Requires Absolute URLs
+const BASE_URL = "http://localhost:3000";
+
 export async function middleware(req) {
   const token = await getToken({ req, secret: process.env.JWT_SECRET });
 
@@ -10,6 +13,6 @@ export async function middleware(req) {
   }
 
   if (!token && pathname !== "/login") {
-    return NextResponse.redirect("http://localhost:3000/login"); // Requires Absolute URL
+    return NextResponse.redirect(`${BASE_URL}/login`);
   }
 }
